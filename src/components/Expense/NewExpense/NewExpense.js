@@ -1,10 +1,14 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
-const NewExpense = () => {
+const NewExpense = (props) => {
+  const newExpenseData = (data) => {
+    data.id = 'EXP5';
+    props.onNewExpense(data);
+  };
   return (
     <div className="new-expense">
-      <ExpenseForm />
+      <ExpenseForm onExpenseFormSubmit={newExpenseData} />
     </div>
   );
 };
